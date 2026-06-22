@@ -34,7 +34,7 @@ jobs:
       
       - name: Run PyInstaller
         run: |
-          pyinstaller --noconfirm --onedir --console --name "neko"  "neko_utils/neko.pyw"
+          pyinstaller --noconfirm --onedir --console --name "neko"  "neko.pyw"
       
       - name: Copy config files
         run: |
