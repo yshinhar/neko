@@ -30,7 +30,7 @@ jobs:
       
       - name: Install requirements
         run: |
-          pip install pyinstaller pygame psutil pyperclip
+          pip install pyinstaller pygame psutil pyperclip keyboard
       
       - name: Run PyInstaller
         run: |
