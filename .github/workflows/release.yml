@@ -34,31 +34,22 @@ jobs:
       
       - name: Run PyInstaller
         run: |
-          pyinstaller --noconfirm --onedir --console --name "wow_addon_manager"  "neko_utils/neko.pyw"
+          pyinstaller --noconfirm --onedir --console --name "neko"  "neko_utils/neko.pyw"
       
       - name: Copy config files
         run: |
-          copy *.json dist\wow_addon_manager
+          copy *.json dist\neko
       
       - name: Upload artifacts 
         uses: actions/upload-artifact@v4
         with:
           name: wow_addons_manager
           path: dist/wow_addon_manager
-      
-      - name: Create tag
-        uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
-        with:
-          tag: "$(date +'%y%m%d%H%M')"
-          tag_exists_error: false
-          message: "Latest release"
-
 
       - name: Realse  
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts: "dist/wow_addon_manager"
+          artifacts: "dist/neko"
           commit: ${{ env.sha_short }}
           tag: ${{ github.ref_name }}
