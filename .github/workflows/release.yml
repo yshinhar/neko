@@ -43,5 +43,5 @@ jobs:
       - name: Upload artifacts 
         uses: actions/upload-artifact@v7
         with:
-          name: wow_addons_manager
-          path: dist/wow_addon_manager
+          name: neko
+          path: dist/neko
