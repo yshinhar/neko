@@ -41,15 +41,7 @@ jobs:
           copy *.json dist\neko
       
       - name: Upload artifacts 
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: wow_addons_manager
           path: dist/wow_addon_manager
-
-      - name: Realse  
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          artifacts: "dist/neko"
-          commit: ${{ env.sha_short }}
-          tag: ${{ github.ref_name }}
