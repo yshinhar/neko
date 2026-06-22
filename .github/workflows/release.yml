@@ -34,7 +34,7 @@ jobs:
       
       - name: Run PyInstaller
         run: |
-          pyinstaller --noconfirm --onedir --console --name "wow_addon_manager"  "main.py"
+          pyinstaller --noconfirm --onedir --console --name "wow_addon_manager"  "neko_utils/neko.pyw"
       
       - name: Copy config files
         run: |
