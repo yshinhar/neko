@@ -1,107 +1,642 @@
 [
   {
-    "ts": "2026-03-01 23:58:41",
+    "ts": "2026-06-14 20:28:02",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-14 20:28:02",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-14 20:28:02",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:41",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:42",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:06:43",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-15 11:41:01",
     "name": "work time",
     "trigger": "neko_right_click"
   },
   {
-    "ts": "2026-03-02 12:16:47",
+    "ts": "2026-06-15 11:41:24",
     "name": "work time",
     "trigger": "neko_right_click"
   },
   {
-    "ts": "2026-03-02 13:23:17",
+    "ts": "2026-06-15 11:41:31",
+    "name": "work time",
+    "trigger": "neko_hold_pick"
+  },
+  {
+    "ts": "2026-06-22 20:02:25",
     "name": "work time",
     "trigger": "neko_right_click"
   },
   {
-    "ts": "2026-03-02 13:39:37",
+    "ts": "2026-06-22 20:04:00",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:02",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:03",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:03",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:04",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:05",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:06",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:06",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 20:04:06",
+    "name": "toggle",
+    "trigger": "keybind"
+  },
+  {
+    "ts": "2026-06-22 21:02:54",
     "name": "work time",
     "trigger": "neko_right_click"
   },
   {
-    "ts": "2026-03-02 18:40:36",
+    "ts": "2026-06-22 21:44:31",
     "name": "work time",
     "trigger": "neko_right_click"
   },
   {
-    "ts": "2026-03-02 18:41:44",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-02 18:49:43",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-02 23:06:20",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-02 23:06:23",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-02 23:06:24",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-02 23:06:26",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-03 00:13:26",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-03 11:18:14",
-    "name": "news",
-    "trigger": "neko_left_click"
-  },
-  {
-    "ts": "2026-03-03 11:37:32",
-    "name": "news",
-    "trigger": "neko_left_click"
-  },
-  {
-    "ts": "2026-03-03 11:37:41",
-    "name": "news",
-    "trigger": "neko_left_click"
-  },
-  {
-    "ts": "2026-03-03 11:39:15",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-03 15:07:16",
-    "name": "news",
-    "trigger": "neko_left_click"
-  },
-  {
-    "ts": "2026-03-03 16:18:13",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-04 13:45:28",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-04 19:30:32",
-    "name": "work time",
-    "trigger": "neko_right_click"
-  },
-  {
-    "ts": "2026-03-04 19:31:17",
-    "name": "work time",
-    "trigger": "neko_right_click"
+    "ts": "2026-06-22 21:44:47",
+    "name": "toggle",
+    "trigger": "keybind"
   }
 ]

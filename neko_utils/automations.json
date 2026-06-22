@@ -21,6 +21,23 @@
       {
         "type": "open_url",
         "value": "https://chatgpt.com/"
+      },
+      {
+        "type": "open_url",
+        "value": "https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all"
+      }
+    ]
+  },
+  {
+    "name": "toggle",
+    "trigger": {
+      "type": "keybind",
+      "value": "ctrl+p"
+    },
+    "actions": [
+      {
+        "type": "toggle_neko",
+        "value": ""
       }
     ]
   }
