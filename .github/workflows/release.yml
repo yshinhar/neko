@@ -30,7 +30,7 @@ jobs:
       
       - name: Install requirements
         run: |
-          pip install pyinstaller tkinter webbrowser ctypes pygame psutil pyperclip
+          pip install pyinstaller pygame psutil pyperclip
       
       - name: Run PyInstaller
         run: |
