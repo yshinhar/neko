@@ -253,9 +253,11 @@ def run_action(action):
 def run_automation(automation, trigger_type="manual"):
     def _run():
         log_history(automation.get("name", "?"), trigger_type)
+        has_toggle = any(a.get("type") == "toggle_neko"
+                                for a in automation.get("actions", []))
         if trigger_type not in ("manual", "neko_left_click",
-                                "neko_right_click", "neko_hold_pick"):
-            root.after(0, sound_meow)
+                                        "neko_right_click", "neko_hold_pick") and not has_toggle:
+                    root.after(0, sound_meow)
         for action in automation.get("actions", []):
             run_action(action)
     threading.Thread(target=_run, daemon=True).start()
@@ -841,6 +843,8 @@ def open_mode(mode):
         root.geometry("200x360")
     elif mode == "ms":
         root.geometry("200x290")
+    elif mode == "stopwatch":
+        root.geometry("200x340")
     else:
         root.geometry("200x320")
 
@@ -851,6 +855,8 @@ def open_mode(mode):
         _build_clip_ui(_mode_frame)
     elif mode == "ms":
         _build_ms_ui(_mode_frame)
+    elif mode == "stopwatch":
+        _build_stopwatch_ui(_mode_frame)
     else:
         _build_calc_ui(_mode_frame)
 
@@ -1459,6 +1465,249 @@ def _build_calc_ui(frame):
     show_page("calc")
 
 # ---------------------------------------------------------------------------
+# Stopwatch / Timer tool
+# ---------------------------------------------------------------------------
+active_timers   = []      # running/paused countdown timers: {"id","label","total","remaining","running"}
+_timer_id_ctr   = [0]
+_sw_refresh_cb  = [None]  # set while the stopwatch mode UI is open
+sw_state        = {"running": False, "elapsed": 0}  # the plain count-up stopwatch
+
+def _play_meow_burst(times=3, gap_ms=650):
+    """Plays the finished-timer alarm as separated meows: 'meow! ... meow! ... meow!'"""
+    def _step(i):
+        if i >= times:
+            return
+        sound_meow()
+        root.after(gap_ms, lambda: _step(i + 1))
+    _step(0)
+
+def _timers_tick():
+    finished = []
+    for t in list(active_timers):
+        if t["running"]:
+            t["remaining"] -= 1
+            if t["remaining"] <= 0:
+                t["remaining"] = 0
+                finished.append(t)
+    for t in finished:
+        if t in active_timers:
+            active_timers.remove(t)
+        _play_meow_burst()
+    if sw_state["running"]:
+        sw_state["elapsed"] += 1
+    if _sw_refresh_cb[0] is not None:
+        try:
+            _sw_refresh_cb[0]()
+        except Exception:
+            _sw_refresh_cb[0] = None
+    root.after(1000, _timers_tick)
+
+root.after(1000, _timers_tick)
+
+def _fmt_timer(secs):
+    secs = max(0, int(secs))
+    h, rem = divmod(secs, 3600)
+    m, s = divmod(rem, 60)
+    if h > 0:
+        return f"{h}:{m:02d}:{s:02d}"
+    return f"{m:02d}:{s:02d}"
+
+def _build_stopwatch_ui(frame):
+    tab = ["timer"]
+    tabs = {}
+
+    top = tk.Frame(frame, bg="#202020")
+    top.pack(fill="x", padx=6, pady=(6, 2))
+    _mini_neko_exit(top, MINI_CAT).pack(side="left")
+
+    tabbar = tk.Frame(top, bg="#202020")
+    tabbar.pack(side="right")
+
+    def _tab_btn(parent, txt, cmd):
+        return tk.Button(parent, text=txt, command=cmd,
+                         bg="#333", fg="white", bd=0, font=("Arial", 8, "bold"),
+                         activebackground="#555", cursor="hand2", padx=4, pady=1)
+
+    content = tk.Frame(frame, bg="#202020")
+    content.pack(fill="both", expand=True)
+
+    def show_tab(name):
+        tab[0] = name
+        for t in tabs.values():
+            t.pack_forget()
+        tabs[name].pack(fill="both", expand=True)
+
+    # ── TIMER TAB — running countdown timers, Apple-Timer style ─────────────
+    timer_tab = tk.Frame(content, bg="#202020")
+    tabs["timer"] = timer_tab
+
+    add_row = tk.Frame(timer_tab, bg="#202020")
+    add_row.pack(fill="x", padx=8, pady=(6, 2))
+
+    def _mk_time_row(parent, label_text):
+        row = tk.Frame(parent, bg="#202020")
+        row.pack(fill="x", pady=1)
+        tk.Label(row, text=label_text, bg="#202020", fg="#666",
+                 font=("Arial", 8)).pack(side="left")
+        ent = tk.Entry(row, width=4, font=("Arial", 10), bg="#2B2B2B", fg="white",
+                       insertbackground="white", bd=0, justify="center",
+                       highlightthickness=0)
+        ent.pack(side="right", ipady=2)
+        return ent
+
+    h_ent = _mk_time_row(add_row, "hours")
+    m_ent = _mk_time_row(add_row, "minutes")
+    s_ent = _mk_time_row(add_row, "seconds")
+
+    def _parse_field(entry):
+        v = entry.get().strip()
+        if not v:
+            return 0
+        try:
+            return max(0, int(float(v)))
+        except Exception:
+            return 0
+
+    def add_timer():
+        secs = _parse_field(h_ent) * 3600 + _parse_field(m_ent) * 60 + _parse_field(s_ent)
+        if secs <= 0:
+            return
+        _timer_id_ctr[0] += 1
+        active_timers.append({"id": _timer_id_ctr[0], "label": f"Timer {_timer_id_ctr[0]}",
+                              "total": secs, "remaining": secs, "running": True})
+        sound_meow()
+        refresh_timers()
+
+    start_row = tk.Frame(timer_tab, bg="#202020")
+    start_row.pack(fill="x", padx=8, pady=(2, 4))
+
+    tk.Button(start_row, text="start timer", command=add_timer,
+              bg="white", fg="black", bd=0, font=("Arial", 9, "bold"),
+              activebackground="#ddd", cursor="hand2", pady=3
+              ).pack(fill="x")
+
+    list_container = tk.Frame(timer_tab, bg="#202020")
+    list_container.pack(fill="both", expand=True, padx=6, pady=(2, 4))
+
+    def toggle_running(t):
+        t["running"] = not t["running"]
+        refresh_timers()
+
+    def delete_timer(t):
+        if t in active_timers:
+            active_timers.remove(t)
+        refresh_timers()
+
+    def refresh_timers():
+        for w in list_container.winfo_children():
+            w.destroy()
+        if not active_timers:
+            tk.Label(list_container, text="no timers running", bg="#202020",
+                     fg="#555", font=("Arial", 9)).pack(pady=10)
+            return
+        for t in active_timers:
+            row = tk.Frame(list_container, bg="#2B2B2B", pady=3)
+            row.pack(fill="x", padx=2, pady=2)
+            tk.Button(row, text="✕", command=lambda t=t: delete_timer(t),
+                      bd=0, bg="#2B2B2B", fg="#aaa", font=("Arial", 9),
+                      activebackground="#333", cursor="hand2").pack(side="right", padx=2)
+            tk.Button(row, text=("⏸" if t["running"] else "▶"),
+                      command=lambda t=t: toggle_running(t),
+                      bd=0, bg="#2B2B2B", fg="white", font=("Arial", 9),
+                      activebackground="#333", cursor="hand2").pack(side="right", padx=2)
+            tk.Label(row, text=_fmt_timer(t["remaining"]), bg="#2B2B2B", fg="white",
+                     font=("Arial", 11, "bold"), anchor="w"
+                     ).pack(side="left", fill="x", expand=True, padx=4)
+
+    # ── STOPWATCH TAB — plain count-up stopwatch ─────────────────────────────
+    sw_tab = tk.Frame(content, bg="#202020")
+    tabs["stopwatch"] = sw_tab
+
+    sw_disp = tk.Label(sw_tab, text=_fmt_timer(sw_state["elapsed"]),
+                       bg="#202020", fg="white", font=("Arial", 26, "bold"))
+    sw_disp.pack(pady=(20, 10))
+
+    sw_btn_row = tk.Frame(sw_tab, bg="#202020")
+    sw_btn_row.pack(pady=4)
+
+    def sw_toggle():
+        sw_state["running"] = not sw_state["running"]
+        sw_start_btn.config(text=("pause" if sw_state["running"] else "start"))
+
+    def sw_reset():
+        sw_state["running"] = False
+        sw_state["elapsed"] = 0
+        sw_start_btn.config(text="start")
+        sw_disp.config(text=_fmt_timer(0))
+
+    sw_start_btn = tk.Button(sw_btn_row, text=("pause" if sw_state["running"] else "start"),
+                             command=sw_toggle,
+                             bg="white", fg="black", bd=0, font=("Arial", 10, "bold"),
+                             activebackground="#ddd", cursor="hand2", padx=10, pady=3)
+    sw_start_btn.pack(side="left", padx=4)
+
+    tk.Button(sw_btn_row, text="reset", command=sw_reset,
+              bg="#333", fg="#aaa", bd=0, font=("Arial", 10),
+              activebackground="#444", cursor="hand2", padx=10, pady=3
+              ).pack(side="left", padx=4)
+
+    # ── Wire up tab buttons ──────────────────────────────────────────────────
+    _tab_btn(tabbar, "⏳", lambda: show_tab("timer")).pack(side="left", padx=1)
+    _tab_btn(tabbar, "⏱", lambda: show_tab("stopwatch")).pack(side="left", padx=1)
+
+    def _refresh_cb():
+        refresh_timers()
+        sw_disp.config(text=_fmt_timer(sw_state["elapsed"]))
+
+    _sw_refresh_cb[0] = _refresh_cb
+
+    refresh_timers()
+    show_tab("timer")
+
+# ---------------------------------------------------------------------------
+# Notepad tool (separate popup window, like the automation editor)
+# ---------------------------------------------------------------------------
+_notepad_win = [None]
+
+def open_notepad():
+    if _notepad_win[0] is not None:
+        try:
+            if _notepad_win[0].winfo_exists():
+                _notepad_win[0].deiconify()
+                _notepad_win[0].lift()
+                _notepad_win[0].focus_force()
+                return
+        except Exception:
+            pass
+
+    win = tk.Toplevel(root)
+    _style_win(win)
+    size = 240
+    win.geometry(f"{size}x{size}")
+    _notepad_win[0] = win
+
+    def _on_close():
+        _notepad_win[0] = None
+        win.destroy()
+    win.protocol("WM_DELETE_WINDOW", _on_close)
+
+    top = tk.Frame(win, bg="#202020")
+    top.pack(fill="x", padx=6, pady=(6, 2))
+    tk.Label(top, text="notepad", bg="#202020", fg="#555",
+             font=("Arial", 9)).pack(side="left")
+
+    text = tk.Text(win, bg="#101010", fg="white", insertbackground="white",
+                   bd=0, highlightthickness=0, font=("Arial", 11), wrap="word",
+                   padx=6, pady=4)
+    text.pack(fill="both", expand=True, padx=6, pady=(0, 6))
+
+    tk.Button(top, text="clear", command=lambda: text.delete("1.0", tk.END),
+              bg="#333", fg="#aaa", bd=0, font=("Arial", 8),
+              activebackground="#444", cursor="hand2").pack(side="right")
+
+    text.focus_set()
+
+# ---------------------------------------------------------------------------
 # Hold-to-pick popup
 # ---------------------------------------------------------------------------
 HOLD_MS = 500
@@ -1762,6 +2011,16 @@ ms_btn = tk.Button(_bar, text="🚩", command=lambda: open_mode("ms"),
                    activebackground="#202020", cursor="hand2", pady=0, padx=2)
 ms_btn.pack(side="right")
 
+note_btn = tk.Button(_bar, text="🖊", command=lambda: open_notepad(),
+                    bg="#202020", fg="#aaa", bd=0, font=("Arial", 13, "bold"),
+                    activebackground="#202020", cursor="hand2", pady=0, padx=2)
+note_btn.pack(side="right")
+
+clock_btn = tk.Button(_bar, text="🕐", command=lambda: open_mode("stopwatch"),
+                      bg="#202020", fg="#aaa", bd=0, font=("Arial", 13, "bold"),
+                      activebackground="#202020", cursor="hand2", pady=0, padx=2)
+clock_btn.pack(side="right")
+
 calc_btn = tk.Button(_bar, text="÷", command=lambda: open_mode("calc"),
                      bg="#202020", fg="#aaa", bd=0, font=("Arial", 13, "bold"),
                      activebackground="#202020", cursor="hand2", pady=0, padx=2)
@@ -1787,7 +2046,7 @@ def _over(event, widget):
 def start_drag(event):
     global mouse_tracking_enabled
     _wake()
-    if _over(event, btn) or _over(event, arrow_btn) or _over(event, clip_btn) or _over(event, calc_btn) or _over(event, ms_btn):
+    if _over(event, btn) or _over(event, arrow_btn) or _over(event, clip_btn) or _over(event, calc_btn) or _over(event, ms_btn) or _over(event, clock_btn) or _over(event, note_btn):
         return
     drag["active"] = True
     mouse_tracking_enabled = False
