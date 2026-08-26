@@ -201,7 +201,7 @@ def run_action(action):
                     shell=False)
 
         elif atype == "run_shell":
-            subprocess.Popen(avalue, shell=True)
+            subprocess.Popen(f'cmd /k "{avalue}"', creationflags=subprocess.CREATE_NEW_CONSOLE)
 
         elif atype == "wait":
             secs = max(0, float(avalue))
